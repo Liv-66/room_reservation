@@ -22,4 +22,16 @@ class RoomController extends Controller
                 -> with('photo', $room->photo)
                 -> with('quantity', $room->quantity);
     }
+
+    public function updateRoom(Request $request, $id) {
+        $room = Room::find($id)
+                -> update(['name' => $request->input('roomName')]);
+        // return view('edit')
+        //         -> with('id', $room->id)
+        //         -> with('name', $room->name)
+        //         -> with('description', $room->description)
+        //         -> with('price', $room->price)
+        //         -> with('photo', $room->photo)
+        //         -> with('quantity', $room->quantity);
+    }
 }

@@ -9,13 +9,15 @@
 </ul>
 <br />
 
-<form action="/users/profile?_method=PUT" method="POST" style="width: 100%;" enctype="multipart/form-data">
+<form action="/api/v1/rooms/edit/{{ $id }}" method="POST" style="width: 100%;" enctype="multipart/form-data">
+    @method('PUT')
+    @csrf
     <div class="text-center mb-4">
         <h1 class="h3 mb-3 font-weight-normal">房型資料</h1>
     </div>
     <div class="form-label-group">
-        <label for="roomId">房型名稱</label>
-        <input type="text" name="roomId" class="form-control" value={{ $name }}>
+        <label for="roomName">房型名稱</label>
+        <input type="text" name="roomName" class="form-control" value={{ $name }}>
     </div>
     <br />
     <div class="form-label-group">
