@@ -22,9 +22,12 @@
                 </p>
                 <span class="badge badge-secondary">定價：{{ $room->price }}</span>
                 <p class="card-text card-content">{{ $room->description }}</p>
-                <a href="/api/v1/rooms/{{ $room->id }}"  class="card-botton btn-primary">預定</a>
-                <a href="/api/v1/rooms/{{ $room->id }}"  class="card-botton btn-primary">編輯</a>
-                
+                @auth
+                <a href="/api/v1/rooms/edit/{{ $room->id }}"  class="card-botton btn-primary">編輯</a>
+                @endauth
+                @guest
+                <a href="/api/v1/rooms/booking/{{ $room->id }}"  class="card-botton btn-primary">預定</a>
+                @endguest
             </div>
         </div>
     </div>

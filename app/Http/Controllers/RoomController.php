@@ -14,4 +14,7 @@ class RoomController extends Controller
         $rooms = Room::all();
         return view('index', ['rooms' => $rooms]);
     }
+
+    public function editRoom(Request $request) {
+    }
 }
