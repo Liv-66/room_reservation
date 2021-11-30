@@ -8,13 +8,18 @@ use Illuminate\Http\Request;
 class RoomController extends Controller
 {
     public function getAllRooms(Request $request) {
-        // section_start();
-        // echo("<script>console.log('PHP: " . $_SESSION . "');</script>");
-        // section_end();
         $rooms = Room::all();
         return view('index', ['rooms' => $rooms]);
     }
 
-    public function editRoom(Request $request) {
+    public function editRoom(Request $request, $id) {
+        $room = Room::find($id);
+        return view('edit')
+                -> with('id', $room->id)
+                -> with('name', $room->name)
+                -> with('description', $room->description)
+                -> with('price', $room->price)
+                -> with('photo', $room->photo)
+                -> with('quantity', $room->quantity);
     }
 }

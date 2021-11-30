@@ -21,4 +21,4 @@ Route::get('/login', [UserController::class, 'login']);
 Route::post('/login', [UserController::class, 'doLogin']) -> name('doLogin');
 Route::get('/logout', [UserController::class, 'logout']);
 
-Route::get('/api/v1/rooms/edit/:id', [RoomController::class, 'editRoom']);
+Route::get('/api/v1/rooms/edit/{id}', [RoomController::class, 'editRoom']);
