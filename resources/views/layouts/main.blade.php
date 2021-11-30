@@ -7,13 +7,14 @@
             <ul class="navbar-nav mr-auto">
             </ul>
             <div>
-                {{--#if user--}}
-                <span style="color: white;margin-right: 10px;">Hi, {{--user.email--}}</span>
+                @auth
+                <span style="color: white;margin-right: 10px;">Hi, {{ Auth::user() -> name }}</span>
                 <a href="/users/profile" style="color: white;margin-right: 10px;">Profile</a>
                 <a href="/logout"><button class="btn btn-outline-success my-2 my-sm-0">LogOut</button></a>
-                {{--else--}}
+                @endauth
+                @guest
                 <a href="/login"><button class="btn btn-outline-success my-2 my-sm-0">Login</button></a>
-                {{--/if--}}
+                @endguest
             </div>
         </div>
     </nav>
