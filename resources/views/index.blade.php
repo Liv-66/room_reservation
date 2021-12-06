@@ -25,9 +25,9 @@
                 @auth
                 <a href="/api/v1/rooms/edit/{{ $room->id }}"  class="card-botton btn-primary">編輯</a>
                 @endauth
-                @guest
+                <!-- @guest
                 <a href="/api/v1/rooms/booking/{{ $room->id }}"  class="card-botton btn-primary">預定</a>
-                @endguest
+                @endguest -->
             </div>
         </div>
     </div>

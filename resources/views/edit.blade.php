@@ -17,30 +17,34 @@
     </div>
     <div class="form-label-group">
         <label for="roomName">房型名稱</label>
-        <input type="text" name="roomName" class="form-control" value={{ $name }}>
+        <input type="text" name="roomName"  class="form-control" value={{ $name }} @guest readonly @endguest>
     </div>
     <br />
     <div class="form-label-group">
         <label for="roomPrice">價格</label>
-        <input type="number" name="roomPrice" class="form-control" value={{ $price }}>
+        <input type="number" name="roomPrice" class="form-control" value={{ $price }} @guest readonly @endguest>
     </div>
     <br />
     <div class="form-label-group">
         <label for="roomQuantity">房間數</label>
-        <input type="number" name="roomQuantity" class="form-control" value={{ $quantity }}>
+        <input type="number" name="roomQuantity" class="form-control" value={{ $quantity }} @guest readonly @endguest>
     </div>
     <br />
+    @auth
     <div class="form-group">
         <label for="roomImage">照片</label>
         <input type="file" class="form-control-file" id="roomImage" name="roomImage" value={{ $name }}>
     </div>
     <br />
+    @endauth
     <div class="form-group">
         <label for="roomDescription">房型簡介</label>
-        <textarea name="roomDescription" id="roomDescription" class="form-control" rows="10">{{ $description }}</textarea>
+        <textarea name="roomDescription" id="roomDescription" class="form-control" rows="10" @guest readonly @endguest>{{ $description }}</textarea>
     </div>
     <br />
+    @auth
     <button class="btn btn-lg btn-primary btn-block" type="submit">Submit</button>
+    @endauth
     <div class="text-center mb-4">
         <p><a href="/">回上一頁</a></p>
     </div>

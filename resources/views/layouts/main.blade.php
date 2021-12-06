@@ -2,14 +2,14 @@
 
 <body>
     <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
-        <a class="navbar-brand" href="/">My Way House</a>
+        <a class="navbar-brand" href="/">Welcome to the homestay page</a>
         <div class="navbar-collapse offcanvas-collapse" id="navbarsExampleDefault">
             <ul class="navbar-nav mr-auto">
             </ul>
             <div>
                 @auth
                 <span style="color: white;margin-right: 10px;">Hi, {{ Auth::user() -> name }}</span>
-                <a href="/users/profile" style="color: white;margin-right: 10px;">Profile</a>
+                <!-- <a href="/users/profile" style="color: white;margin-right: 10px;">Profile</a> -->
                 <a href="/logout"><button class="btn btn-outline-success my-2 my-sm-0">LogOut</button></a>
                 @endauth
                 @guest

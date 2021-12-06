@@ -12,6 +12,17 @@ class RoomController extends Controller
         return view('index', ['rooms' => $rooms]);
     }
 
+    public function getRoom(Request $request, $id) {
+        $room = Room::find($id);
+        return view('edit')
+                -> with('id', $room->id)
+                -> with('name', $room->name)
+                -> with('description', $room->description)
+                -> with('price', $room->price)
+                -> with('photo', $room->photo)
+                -> with('quantity', $room->quantity);
+    }
+
     public function editRoom(Request $request, $id) {
         $room = Room::find($id);
         return view('edit')
