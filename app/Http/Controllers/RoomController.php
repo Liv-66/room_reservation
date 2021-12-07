@@ -15,11 +15,7 @@ class RoomController extends Controller
 
     public function getRoom(Request $request, $id) {
         $room = Room::find($id);
-<<<<<<< HEAD
         return view('edit')
-=======
-        return view('roomPage')
->>>>>>> workspace_g
                 -> with('id', $room->id)
                 -> with('name', $room->name)
                 -> with('description', $room->description)
