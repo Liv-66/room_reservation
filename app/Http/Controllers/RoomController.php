@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Room;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class RoomController extends Controller
 {
@@ -14,7 +15,11 @@ class RoomController extends Controller
 
     public function getRoom(Request $request, $id) {
         $room = Room::find($id);
+<<<<<<< HEAD
         return view('edit')
+=======
+        return view('roomPage')
+>>>>>>> workspace_g
                 -> with('id', $room->id)
                 -> with('name', $room->name)
                 -> with('description', $room->description)
@@ -35,8 +40,18 @@ class RoomController extends Controller
     }
 
     public function updateRoom(Request $request, $id) {
-        $room = Room::find($id)
-                -> update(['name' => $request->input('roomName')]);
+        DB::update('UPDATE rooms SET name = ?, price = ?, quantity = ?, description = ? WHERE id = ?',
+        [$request->input('roomName'), 
+        $request->input('roomPrice'),
+        $request->input('roomQuantity'),
+        $request->input('roomDescription'),
+        $id]);
+        return $this->getRoom($request, $id);
+        // $room = Room::find($id)
+        //         -> update(['name' => $request->input('roomName')],
+        //                   ['price' => $request->input('roomPrice')],
+        //                   ['quantity' => $request->input('roomQuantity')],
+        //                   ['description' => $request->input('roomDescription')]);
         // return view('edit')
         //         -> with('id', $room->id)
         //         -> with('name', $room->name)
